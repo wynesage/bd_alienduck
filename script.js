@@ -10,6 +10,9 @@ var candle_lit = false;
 //for Phone
 function tap() {
   document.getElementById("popup").style.display = "none";
+  playSfx('asset/freesound_community-button-pressed-38129.mp3');
+  fade("popup");
+  movie();
 }
 
 function blow_candle(){
