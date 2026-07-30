@@ -1,0 +1,102 @@
+:root {
+    --pixel-size: 6;
+}
+
+*{
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;    
+  overflow: hidden;
+}
+body {
+  background: black;
+}
+
+.popup{
+    height: 100vh;   
+    display: flex;
+    justify-content: center;
+    animation: text 1.5s infinite;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+button{
+    font-size:x-large;
+    color: green;
+    background: none;
+    border: none;
+}
+.duck{
+    width: calc(64px * var(--pixel-size));
+    height: calc(64px * var(--pixel-size));
+    overflow: hidden;
+    position: relative;
+    margin: 4em auto;
+    display: none;
+
+}
+
+.duck_sp{
+    animation: move_sp 1s steps(4) infinite;
+    width: calc(256px * var(--pixel-size));
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.blink .duck_sp {
+   top: calc(-64px * var(--pixel-size));
+}
+
+.sing .duck_sp {
+   top: calc(-128px * var(--pixel-size));
+}
+
+.cake .duck_sp {
+   top: calc(-256px * var(--pixel-size));
+}
+
+.butt{
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: 30%;
+}
+
+.dialog{
+    height: 20vh;   
+    display: flex;
+    justify-content:first baseline;
+    align-items:first baseline;
+    padding: 20pt;
+    font-size: x-large;
+    color: aliceblue;
+}
+
+.fade-out{
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes text{
+    from{
+        opacity: 1;
+    }to{
+        opacity: 0;
+    }
+}
+
+@keyframes move_sp{
+    from{
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+
+.pixel_art{
+    image-rendering: pixelated;
+}
