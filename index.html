@@ -10,17 +10,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="popup" id="popup" ontouchstart="tap()"><button id="start_button">Tap here to start!</button></div>
+    <div class="popup" id="popup" ontouchstart="tap()"><button id="start_button">Tap me to start!</button></div>
     
     <div class="duck" id="duck">
         <button id="butt" class="butt" ontouchstart="blow_candle()"></button>
-        <img class="duck_sp pixel_art" src="asset\gZ3c5.png">
+        <img class="duck_sp pixel_art" id="duck_sp" src="asset\spritesheet (1).png">
     </div>  
     
 
-    <div class="dialog" id="dialog"></div>
-
+    <div class="dialog" id="dialog">
+         <button id="skip"></button>
+    </div>
     <audio id="audio"></audio>
-    <script src="script.js"></script>
-</body>
+    
+<script src="script.js"></script></body>
 </html>
