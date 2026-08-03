@@ -12,6 +12,7 @@ const sleep = ms => new Promise(res => setTimeout(res,ms));
 var candle_cake = false;
 var skipped = false;
 var end = false;
+
 //for Phone
 function tap() {
   playSfx('./asset/freesound_community-button-pressed-38129.mp3');
@@ -21,17 +22,24 @@ function tap() {
 }
 
 function blow_candle(){
-  if(candle_cake == true){
-      dialog.textContent= "";
-      duck.classList.remove("cake");
-      duck.classList.add("snuff"); 
-      candle_cake = false;
-
+    if(candle_cake == true){
+    dialog.textContent= "";
+    duck.classList.remove("cake");
+    duck.classList.add("snuff"); 
+    blow.disabled = true;
     setTimeout(() => {
       movie2();
     },1000);
   }
 } 
+
+function skip() {
+  skipped = true;
+  audio.pause();
+  setTimeout(() => {
+  movie_point5(); }, 900);
+  skip_butt.textContent = "";
+}
 // end for phone
 
 function resolveAudioUrl(filePath) {
