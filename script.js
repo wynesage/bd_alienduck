@@ -16,9 +16,11 @@ var end = false;
 //for Phone
 function tap() {
   playSfx('./asset/freesound_community-button-pressed-38129.mp3');
-  document.getElementById("popup").style.display = "none";
   fade("popup");
   movie();
+  if(end == true){
+    window.location.reload();
+  }
 }
 
 function blow_candle(){
@@ -41,6 +43,36 @@ function skip() {
   skip_butt.textContent = "";
 }
 // end for phone
+
+start_button.addEventListener("click", () => {
+  playSfx('./asset/freesound_community-button-pressed-38129.mp3');
+  fade("popup");
+  movie();
+  if(end == true){
+    window.location.reload();
+  }
+});
+
+skip_butt.addEventListener("click", () => {
+  skipped = true;
+  audio.pause();
+  setTimeout(() => {
+  movie_point5(); }, 900);
+  skip_butt.textContent = "";
+})
+
+blow.addEventListener("click", () => {
+    if(candle_cake == true){
+    dialog.textContent= "";
+    duck.classList.remove("cake");
+    duck.classList.add("snuff"); 
+    blow.disabled = true;
+    setTimeout(() => {
+      movie2();
+    },1000);
+  }
+})
+
 
 function resolveAudioUrl(filePath) {
   try {
@@ -72,35 +104,6 @@ function fade(id) {
   element.classList.add("fade-out");
   element.style.display = "none";
 }
-
-start_button.addEventListener("click", () => {
-  playSfx('./asset/freesound_community-button-pressed-38129.mp3');
-  fade("popup");
-  movie();
-  if(end == true){
-    window.location.reload();
-  }
-});
-
-skip_butt.addEventListener("click", () => {
-  skipped = true;
-  audio.pause();
-  setTimeout(() => {
-  movie_point5(); }, 900);
-  skip_butt.textContent = "";
-})
-
-blow.addEventListener("click", () => {
-    if(candle_cake == true){
-    dialog.textContent= "";
-    duck.classList.remove("cake");
-    duck.classList.add("snuff"); 
-    blow.disabled = true;
-    setTimeout(() => {
-      movie2();
-    },1000);
-  }
-})
 
 async function movie(){
 
